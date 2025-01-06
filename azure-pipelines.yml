@@ -1,6 +1,6 @@
 # Starter pipeline
 trigger:
-  - main
+  - master
 
 pool:
   name: default
