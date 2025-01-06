@@ -1,0 +1,25 @@
+# Starter pipeline
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  # Checkmarx AST task
+  - task: Checkmarx AST@3
+    inputs:
+      CheckmarxService: 'CxONE connection'
+      projectName: '$(Build.Repository.Name)'
+      branchName: '$(Build.SourceBranchName)'
+      tenantName: 'ast_abdul_agent'
+
+  # Run a one-line script
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
+
+  # Run a multi-line script
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
